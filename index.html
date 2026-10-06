@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matthew Herod · Portfolio</title>
+<meta name="description" content="Business Systems Analyst and Project Manager who delivers working systems with AI agents. Selected projects and how I work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#15191e; --panel:#1e242c; --panel2:#252d37; --line:#333d49;
+    --text:#eef2f6; --muted:#a8b3c0; --gold:#c9a227; --gold-soft:rgba(201,162,39,.14); --blue:#5fb3ff;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:10;background:rgba(21,25,30,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  nav .brand{font-weight:700;letter-spacing:.3px;color:var(--text)}
+  nav .links a{color:var(--muted);margin-left:22px;font-size:14px;font-weight:500}
+  nav .links a:hover{color:var(--text);text-decoration:none}
+
+  header.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  header.hero::before{content:"";position:absolute;right:-120px;top:-60px;width:120px;height:700px;background:var(--gold);transform:skewX(-18deg);opacity:.9}
+  .hero .wrap{display:grid;grid-template-columns:200px 1fr;gap:44px;align-items:center;padding-top:72px;padding-bottom:72px}
+  .hero img{width:200px;height:200px;border-radius:50%;object-fit:cover;border:4px solid var(--panel2);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .kicker{color:var(--gold);font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+  h1{font-size:46px;line-height:1.1;margin:10px 0 14px;font-weight:800}
+  .lead{font-size:19px;color:var(--muted);max-width:640px;margin:0 0 22px}
+  .cta a{display:inline-block;margin:0 10px 10px 0;padding:10px 18px;border-radius:8px;font-weight:600;font-size:15px}
+  .cta .primary{background:var(--gold);color:#15191e} .cta .primary:hover{text-decoration:none;filter:brightness(1.08)}
+  .cta .ghost{border:1px solid var(--line);color:var(--text)} .cta .ghost:hover{text-decoration:none;border-color:var(--muted)}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:48px 0 8px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .stat b{display:block;font-size:30px;font-weight:800;color:var(--text)}
+  .stat span{font-size:14px;color:var(--muted)}
+
+  section{padding:56px 0 8px}
+  h2{font-size:28px;margin:0 0 6px;font-weight:800}
+  .sub{color:var(--muted);margin:0 0 28px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px;margin-bottom:22px}
+  .card h3{margin:0 0 4px;font-size:21px}
+  .meta{color:var(--gold);font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .lbl{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin:16px 0 6px}
+  .card p{margin:0 0 6px}
+  .card ul{margin:0;padding-left:20px} .card li{margin:3px 0}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .tag{font-size:12.5px;padding:4px 10px;border-radius:999px;background:var(--panel2);border:1px solid var(--line);color:var(--text)}
+  .flow{margin-top:18px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto}
+  .flow svg{display:block;min-width:620px;width:100%;height:auto}
+  .flow text{font-family:Inter,"Segoe UI",Arial,sans-serif;font-size:13px;font-weight:600;fill:#eef2f6}
+  .metric{display:inline-block;background:var(--gold-soft);color:var(--gold);font-weight:700;border-radius:6px;padding:2px 8px;font-size:14px;margin:2px 6px 2px 0}
+
+  .how{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .how .card{margin:0}
+  .how .n{color:var(--gold);font-weight:800;font-size:14px;letter-spacing:2px}
+  .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .skills .card{margin:0;padding:22px}
+  .skills h4{margin:0 0 8px;font-size:15px;color:var(--gold)}
+  .skills p{margin:0;color:var(--muted);font-size:14.5px}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:32px 0;color:var(--muted);font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;text-align:center;padding-top:48px;padding-bottom:48px}
+    .hero img{margin:0 auto;width:150px;height:150px}
+    .lead{margin-left:auto;margin-right:auto}
+    h1{font-size:34px}
+    header.hero::before{display:none}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .grid2,.how{grid-template-columns:1fr}
+    .skills{grid-template-columns:1fr 1fr}
+    nav .links a{margin-left:14px}
+  }
+  @media (max-width:520px){
+    .wrap{padding:0 16px}
+    .skills{grid-template-columns:1fr}
+    nav .links a:nth-child(n+3){display:none}
+    .card{padding:20px}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="brand">Matthew Herod</div>
+  <div class="links"><a href="#projects">Projects</a><a href="#how">How I work</a><a href="#skills">Skills</a><a href="https://www.linkedin.com/in/matthewherod98">LinkedIn</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <img src="assets/headshot.jpg" alt="Matthew Herod">
+  <div>
+    <div class="kicker">Business Systems Analyst &amp; Project Manager</div>
+    <h1>Requirements to rollout,<br>built faster with AI.</h1>
+    <p class="lead">I turn business problems into working systems. I gather the requirements, run the project, and direct AI coding agents to build and test the tools, so teams get software in weeks instead of quarters.</p>
+    <div class="cta">
+      <a class="primary" href="https://www.linkedin.com/in/matthewherod98">Connect on LinkedIn</a>
+      <a class="ghost" href="#projects">See the work</a>
+    </div>
+  </div>
+</div></header>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><b>200+ hrs</b><span>a year of manual setup removed by one tool</span></div>
+    <div class="stat"><b>~600</b><span>automated tests behind an AI-built web app</span></div>
+    <div class="stat"><b>98%</b><span>of team production incidents handled while running projects</span></div>
+    <div class="stat"><b>50+</b><span>stores in a digital coupon program I manage</span></div>
+  </div>
+
+  <section id="projects">
+    <h2>Selected projects</h2>
+    <p class="sub">Retail and finance systems work, described without confidential details.</p>
+
+    <div class="card">
+      <h3>Offer-publishing web app</h3>
+      <div class="meta">Product owner · built with AI coding agents · 2026</div>
+      <div class="grid2">
+        <div>
+          <div class="lbl">Problem</div>
+          <p>Each week, digital coupon offers were set up by hand from many separate deal sheets, looking up every product code one at a time.</p>
+          <div class="lbl">What I did</div>
+          <p>Wrote the requirements and business rules, directed AI coding agents to build the app, and ran testing and releases.</p>
+        </div>
+        <div>
+          <div class="lbl">Result</div>
+          <p><span class="metric">200+ hrs/yr saved (est.)</span><span class="metric">~600 tests</span><span class="metric">47 releases in ~6 weeks</span></p>
+          <p>Deal sheets become validated offers in one place, published to the offer platform by API. Anything the rules can't settle is flagged for a person to decide, and the manual process stays available as a fallback.</p>
+        </div>
+      </div>
+      <div class="flow"><svg viewBox="0 0 860 70" role="img" aria-label="Deal sheet, validate, product lookup, human review, publish by API">
+        <defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#c9a227"/></marker></defs>
+        <g fill="#252d37" stroke="#4a5666" stroke-width="1.4">
+          <rect x="2" y="14" width="140" height="42" rx="8"/><rect x="180" y="14" width="140" height="42" rx="8"/><rect x="358" y="14" width="140" height="42" rx="8"/><rect x="536" y="14" width="140" height="42" rx="8"/>
+        </g>
+        <rect x="714" y="14" width="140" height="42" rx="8" fill="rgba(201,162,39,.16)" stroke="#c9a227" stroke-width="1.4"/>
+        <g stroke="#c9a227" stroke-width="2" marker-end="url(#ar)"><line x1="144" y1="35" x2="176" y2="35"/><line x1="322" y1="35" x2="354" y2="35"/><line x1="500" y1="35" x2="532" y2="35"/><line x1="678" y1="35" x2="710" y2="35"/></g>
+        <g text-anchor="middle"><text x="72" y="40">Deal sheet</text><text x="250" y="40">Validate rules</text><text x="428" y="40">Product lookup</text><text x="606" y="40">Human review</text><text x="784" y="40">Publish by API</text></g>
+      </svg></div>
+      <div class="tags"><span class="tag">C# / .NET</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">REST APIs</span><span class="tag">Playwright</span><span class="tag">CI/CD</span><span class="tag">Claude Code</span><span class="tag">Codex</span></div>
+    </div>
+
+    <div class="card">
+      <h3>AI project management assistant</h3>
+      <div class="meta">Builder · Python + Claude Code · 2026</div>
+      <div class="grid2">
+        <div>
+          <div class="lbl">Problem</div>
+          <p>Running a multi-vendor rollout means a constant stream of email, decisions and risks. Keeping the RAID log and status reports current by hand meant things slipped.</p>
+        </div>
+        <div>
+          <div class="lbl">What it does</div>
+          <ul>
+            <li>Sorts incoming email into the RAID log, decision log and action tracker</li>
+            <li>Drafts stakeholder updates for me to review and send</li>
+            <li>Rebuilds the executive status workbook from one source of truth</li>
+          </ul>
+          <p style="margin-top:8px"><span class="metric">70+ automated tests</span></p>
+        </div>
+      </div>
+      <div class="flow"><svg viewBox="0 0 860 70" role="img" aria-label="Email, triage, project records, drafts and status workbook">
+        <g fill="#252d37" stroke="#4a5666" stroke-width="1.4">
+          <rect x="2" y="14" width="150" height="42" rx="8"/><rect x="200" y="14" width="150" height="42" rx="8"/><rect x="398" y="14" width="200" height="42" rx="8"/>
+        </g>
+        <rect x="646" y="14" width="210" height="42" rx="8" fill="rgba(201,162,39,.16)" stroke="#c9a227" stroke-width="1.4"/>
+        <g stroke="#c9a227" stroke-width="2" marker-end="url(#ar)"><line x1="154" y1="35" x2="196" y2="35"/><line x1="352" y1="35" x2="394" y2="35"/><line x1="600" y1="35" x2="642" y2="35"/></g>
+        <g text-anchor="middle"><text x="77" y="40">Inbox</text><text x="275" y="40">AI triage</text><text x="498" y="40">RAID · decisions · actions</text><text x="751" y="40">Drafts + status workbook</text></g>
+      </svg></div>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Claude Code</span><span class="tag">Excel automation</span><span class="tag">RAID management</span></div>
+    </div>
+
+    <div class="card">
+      <h3>AI Hackathon: IT labor capitalization tracker</h3>
+      <div class="meta">One-day build · 2026</div>
+      <div class="grid2">
+        <div>
+          <div class="lbl">Problem</div>
+          <p>IT time has to be split between capital and operating expense for accounting and audit, and people guess.</p>
+        </div>
+        <div>
+          <div class="lbl">What I built</div>
+          <p>A time tracker with an AI assistant that suggests the right classification, grounded in policy documents. It has role-based access for employees, leadership and finance, and an append-only audit log. Judges and peers liked it.</p>
+        </div>
+      </div>
+      <div class="tags"><span class="tag">React</span><span class="tag">Supabase / Postgres</span><span class="tag">pgvector</span><span class="tag">Retrieval-augmented AI</span><span class="tag">Audit logging</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Finance systems: reconciliation and EDI</h3>
+      <div class="meta">Financial Business Systems Analyst · 2023–2026</div>
+      <ul>
+        <li>Designed an API-driven reconciliation that syncs a partner web app with SAP for automated invoice and payment posting.</li>
+        <li>Sole EDI production support for the company: monitored transactions, triaged failures and coordinated partner escalations.</li>
+        <li>Led Agiloft contract management administration and a company-wide AI upgrade to contract classification and search.</li>
+        <li>Handled <span class="metric">98%</span> of team production incidents across two enterprise systems while delivering three concurrent projects.</li>
+      </ul>
+      <div class="tags"><span class="tag">SAP FI</span><span class="tag">EDI</span><span class="tag">Agiloft CLM</span><span class="tag">REST APIs</span><span class="tag">Python</span><span class="tag">SQL</span></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <h2>How I work with AI agents</h2>
+    <p class="sub">AI speeds up delivery. Discipline keeps it safe.</p>
+    <div class="how">
+      <div class="card"><div class="n">01 · DEFINE</div><h3>Requirements first</h3><p>Business rules, acceptance criteria and open questions are written down before any code. Unknown rules block the build instead of being guessed.</p></div>
+      <div class="card"><div class="n">02 · BUILD</div><h3>Agents do the typing</h3><p>Claude Code, Codex and Antigravity build on short-lived branches, and multiple agents review one another's work. Every change ships with tests.</p></div>
+      <div class="card"><div class="n">03 · SHIP</div><h3>A person approves</h3><p>Nothing reaches production or leaves the building without a human sign-off. Releases are versioned, logged and easy to roll back.</p></div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <p class="sub">The short version.</p>
+    <div class="skills">
+      <div class="card"><h4>Business analysis</h4><p>Requirements, functional specs, user stories, process mapping, UAT</p></div>
+      <div class="card"><h4>Project management</h4><p>RAID and risk, decision logs, vendor and stakeholder coordination, rollouts</p></div>
+      <div class="card"><h4>AI and build</h4><p>Claude Code, Codex, Antigravity, Python, SQL, C#/.NET, React, TypeScript</p></div>
+      <div class="card"><h4>Platforms</h4><p>SAP FI, EDI, Agiloft CLM, point-of-sale and e-commerce integrations, ITIL 4</p></div>
+    </div>
+  </section>
+</div>
+
+<footer><div class="wrap">
+  <div>Matthew Herod · Tyler, Texas · U.S. Marine Corps veteran · B.S. Information Technology</div>
+  <div><a href="https://www.linkedin.com/in/matthewherod98">LinkedIn</a> · <a href="https://github.com/Herodm98">GitHub</a></div>
+</div></footer>
+
+</body>
+</html>
